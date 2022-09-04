@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import CowList from './CowList'
+// import CowList from './CowList'
+import CowLink from '../components/CowLink'
 
 function Cows(){
     const [cows, setCows] = useState([])
@@ -8,15 +9,20 @@ function Cows(){
         fetch('http://localhost:9292/cows')
         .then(res => res.json())
         .then(data => {
+            console.log(data)
+
             setCows(data)
+            
         })
     }, [])
-    // const cowsList = cows.map( c => <CowLink key={c.id} name={c} />)
+    const cowsList = cows.map( c => <CowLink key={c.id} cow={c} />)
     return (
         <div>
             <ul>
-            <CowList cows={cows} tittle="All Cows" />
+            {/* <CowList cows={cows} tittle="All Cows" /> */}
+            {cowsList}
             </ul>
+        
         </div>
     )
 }
