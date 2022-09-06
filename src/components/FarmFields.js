@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import FieldLink from "../containers/FieldLink";
 
-function farmFields(){
+function FarmFields(){
     const [farmFields, setFarmFields] = useState([])
     
     
@@ -9,14 +10,17 @@ function farmFields(){
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            setFarmFields(data)
 
-            
-            
         })
     }, [])
+const fieldList = farmFields.map( f => <FieldLink key={f.id} farmField={f} />)
+    
     return (
-
+        <div>
+            {fieldList}
+        </div>
     )
 }
 
-export default farmFields
+export default FarmFields

@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Cows from './components/Cows';
 import Cow from './containers/Cow';
+import FarmFields from './components/FarmFields';
 // import CowLink from './components/CowLink';
 
 
@@ -23,6 +24,9 @@ function App() {
 
                  <Route path="/cows">
                     <Cows />
+                  </Route>
+                  <Route path="/farm-fields">
+                    <FarmFields />
                   </Route>
                      
                       {/* <Route path="/cows/:id">

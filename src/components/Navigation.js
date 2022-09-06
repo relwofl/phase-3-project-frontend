@@ -7,6 +7,7 @@ function Navigation(){
         <div className='links'>
             <Link to="/">Home</Link>
             <Link to="/cows">Cows</Link>
+            <Link to="/farm-fields">Farm Fields</Link>
         </div>
     </div>
 }
