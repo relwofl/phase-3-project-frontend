@@ -1,28 +1,32 @@
 import React, { useState } from "react";
-function editCow(){
-    
-    
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        
-        const [editCow, setEditCow] = useState([])
+function EditCow({ id, name, onUpdateCow }) {
+  const [editCow, setEditCow] = useState(name);
 
-        fetch(`http://localhost:9292/cows/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: params[:name],
-          }),
-        })
-          .then((r) => r.json())
-          .then((updatedMessage) => onUpdateMessage(updatedMessage));
-      }
+  function handleFormSubmit(e) {
+    e.preventDefault();
 
-
-    return (
-
-    )
+    fetch(`http://localhost:9292/cows/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: editCow,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedCow) => onUpdateCow(updatedCow));
+  }
+  return (
+    <form className="edit-message" onSubmit={handleFormSubmit}>
+      <input
+        type="text"
+        name="name"
+        value={editCow}
+        onChange={(e) => setEditCow(e.target.value)}
+      />
+      <input type="submit" value="Save" />
+    </form>
+  );
 }
-export default editCow
+export default EditCow
