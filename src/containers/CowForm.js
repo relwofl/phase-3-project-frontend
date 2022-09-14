@@ -12,14 +12,21 @@ function CowForm(){
             body: JSON.stringify({
                 name: name,
                 mother: mother
-            })
-        }
+            }),
+        })
+        .then((r) => r.json())
+        .then((newCow) => {
+        console.log(newCow)
+         
+        });
     }
-    })
     return(
         <div>
            <h2>Create a cow </h2>
-           <input type="text" value={name} onChange={{(e) => setName(e.target.value)}}
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <label>Cow</label>
+            <input type="text" value={mother} onChange={(e) => setMother(e.target.value)} />
+            <label>Mother</label>
         </div>
     )
 }

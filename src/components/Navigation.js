@@ -8,6 +8,7 @@ function Navigation(){
             <Link to="/">Home</Link>
             <Link to="/cows">Cows</Link>
             <Link to="/farm-fields">Farm Fields</Link>
+            <Link to="/add-cow">New Cow</Link>
         </div>
     </div>
 }

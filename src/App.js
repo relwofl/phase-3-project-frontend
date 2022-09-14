@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Cows from './components/Cows';
 import Cow from './containers/Cow';
 import FarmFields from './components/FarmFields';
+import CowForm from './containers/CowForm';
 // import CowLink from './components/CowLink';
 
 
@@ -27,6 +28,9 @@ function App() {
                   </Route>
                   <Route path="/farm-fields">
                     <FarmFields />
+                  </Route>
+                  <Route path="/add-cow">
+                    <CowForm />
                   </Route>
                      
                       {/* <Route path="/cows/:id">
