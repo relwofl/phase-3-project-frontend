@@ -2,15 +2,14 @@ import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 
 
-function CowForm(){
+// function CowForm(){
+    const CowForm = () => {
     const [ cow, setCow ] = useState({
         name: "",
         motherId: "",
         farmFieldId: ""
     })
-        const history = useHistory()
-
-    // const [ mother, setMother ] = useState("")
+    const history = useHistory()
 
     const handleChange = (e) => {
         setCow({
@@ -18,39 +17,42 @@ function CowForm(){
             [e.target.name]: e.target.value
         })
     }
-    function handleSubmit (e){
-        e.preventDefualt()
+    // function handleSubmit (e){
+        const handleSubmit = e => {
+        e.preventDefault()
+        
+       
         const newCow = {
             name: cow.name, 
-            motherId: cow.motherId,
-            farmFieldId: cow.farmFieldId
-        
+            mother_id: cow.motherId,
+            farm_field_id: cow.farmFieldId
         }
-        fetch("http://localhost:9292/cows/", {
+       
+        fetch('http://localhost:9292/cows', {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newCow)
-        //         name: name,
-        //         mother: mother
-        //     }),
-        // })
-        // .then((r) => r.json())
-        // .then((newCow) => {
-        // console.log(newCow)
+            headers: { 
+                "Content-Type": "application/json",
+             },
+                body: JSON.stringify(newCow)  
+                
+        })
+        .then(() => history.push("/cows"))
+        
+   
          
-        });
-        history.push("/http://localhost:3000/cows")
+    
     }
+   
     return(
         <>
         <div>Create a new Cow</div>
           <form onSubmit={handleSubmit}>
             <label>Cow</label>
-            <input type="text" name="name" onChange={handleChange} value={cow.name} />
+            <input onChange={handleChange} type="text" name="name" value={cow.name} />
             <label>Mother</label>
-            <input type="integer" name="motherId" onChange={handleChange} value={cow.motherId} />
+            <input onChange={handleChange} type="integer" name="motherId" value={cow.motherId} />
             <label>Farm Field</label>
-            <input type="integer" name="farmFieldId" onChange={handleChange} value={cow.farmFieldId} />
+            <input onChange={handleChange} type="integer" name="farmFieldId" value={cow.farmFieldId} />
             
             <input type="submit" value="Add Cow" />
             </form>

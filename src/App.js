@@ -16,22 +16,21 @@ function App() {
       <Navigation />
         <div className="Body">
           <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/cows/:id">
-                        <Cow />
-                      </Route>
-
-                 <Route path="/cows">
-                    <Cows />
-                  </Route>
-                  <Route path="/farm-fields">
-                    <FarmFields />
-                  </Route>
-                  <Route path="/add-cow">
-                    <CowForm />
-                  </Route>
+                <Route exact path="/">
+                 <Home />
+                </Route>
+                <Route path="/cows/:id">
+                  <Cow />
+                </Route>
+                <Route path="/cows">
+                  <Cows />
+                </Route>
+                <Route path="/farm-fields">
+                  <FarmFields />
+                </Route>
+                <Route path="/add-cow">
+                  <CowForm />
+                </Route>
                      
                       {/* <Route path="/cows/:id">
                         <Cow />
