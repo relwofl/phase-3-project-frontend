@@ -38,11 +38,10 @@ import { useHistory } from 'react-router-dom'
         })
         .then(() => history.push("/cows"))
         
-   
-         
-    
     }
-   
+
+    // console.log(cows)
+    // const list = cows
     return(
         <>
         <div>Create a new Cow</div>
@@ -53,7 +52,13 @@ import { useHistory } from 'react-router-dom'
             <input onChange={handleChange} type="integer" name="motherId" value={cow.motherId} />
             <label>Farm Field</label>
             <input onChange={handleChange} type="integer" name="farmFieldId" value={cow.farmFieldId} />
-            
+            <select>
+                {/* <option value="select one"></option> */}
+                
+                {/* {cows.map((cow) => <option key={cow.id} value={cow.name}></option>)} */}
+                <option value="select a cow">select a cow</option>
+                {/* {list.map((cow) => <option value={cow.name}></option>)} */}
+                </select> 
             <input type="submit" value="Add Cow" />
             </form>
         </>
